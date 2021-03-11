@@ -23,7 +23,29 @@ fi
 cd chia-blockchain
 
 sh install.sh
+if [ $? -eq 0 ]
+    then
+        echo "|||| chia install.sh ended successfully ||||"
+    else
+        echo "|||| chia install.sh failed ||||"
+        exit 1
+fi
+
 
 . ./activate
+if [ $? -eq 0 ]
+    then
+        echo "|||| switched to chia env ||||"
+    else
+        echo "|||| failed to switch to chia env ||||"
+        exit 1
+fi
 
 chia init
+if [ $? -eq 0 ]
+    then
+        echo "|||| chia init ended successfully ||||"
+    else
+        echo "|||| failed to init chia ||||"
+        exit 1
+fi
